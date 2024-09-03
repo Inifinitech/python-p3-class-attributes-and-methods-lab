@@ -6,6 +6,7 @@ class Song:
     artist_count = {}
 
     def __init__(self, name, artist, genre):
+        #all this instances are added upon intialization
         self.name = name
         self.artist = artist
         self.genre = genre
@@ -15,20 +16,24 @@ class Song:
         self.add_to_genre_count(genre)
         self.add_to_artist_count(artist)
 
+# class method to count the number of songs created
     @classmethod
     def add_song_to_count(cls, increment=1):
         cls.count += increment
 
+# class method to add the genre of a song when it is added
     @classmethod
     def add_to_genres(cls, genre):
         if genre not in cls.genres:
             cls.genres.append(genre)
 
+# class method to add the artist of the song when added
     @classmethod
     def add_to_artists(cls, artist):
         if artist not in cls.artists:
             cls.artists.append(artist)
 
+# class method to count the genres of the song and represent as a dict
     @classmethod
     def add_to_genre_count(cls, genre):
         # if the genre exists it is incremented once again
@@ -38,6 +43,7 @@ class Song:
         else: 
             cls.genre_count[genre] = 1
     
+# class method to count artists of a song and represent the data in a dict
     @classmethod
     def add_to_artist_count(cls, artist):
         # if the genre exists it is incremented once again
